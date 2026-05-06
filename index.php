@@ -71,7 +71,7 @@ require_once './db.php';
                   onerror="this.onerror=null; this.src='assets/img/ciak.png'">
               <div class="card-body text-center text-light">
                   <h6 class="card-title fw-bold"><?= $movie->title ?></h6>
-                  <h6 class="card-text fw-light"><small><?= $movie->genre->name ?></small></h6>
+                  <h6 class="card-text fw-light"><small><?= $movie->getGenres() ?></small></h6>
                   <h6 class="card-text fw-bold"><?= $movie->year ?></h6>
               </div>
               </div>
