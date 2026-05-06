@@ -1,3 +1,54 @@
+<?php
+
+class Genre
+{
+  public $name;
+  public function __construct($_name)
+  {
+    $this->name = $_name;
+  }
+}
+
+class Movie
+{
+  public $title;
+  public $poster;
+  public $year;
+  public $genre;
+
+  public function __construct($_title, $_poster, $_year, Genre $_genre)
+  {
+    $this->title = $_title;
+    $this->poster = $_poster;
+    $this->year = $_year;
+    $this->genre = $_genre;
+  }
+
+  public function getMovieInfo()
+  {
+    return "$this->title ({$this->genre->name} - $this->year)";
+  }
+}
+
+$action = new Genre('Azione');
+$drama = new Genre('Drammatico');
+
+$movies = [
+  new Movie(
+    'Matrix',
+    'https://upload.wikimedia.org/wikipedia/en/d/db/The_Matrix.png',
+    1999,
+    $action,
+  ),
+  new Movie(
+    'Forrest Gump',
+    'https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg',
+    1994,
+    $drama,
+  ),
+];
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,7 +95,7 @@
     <!-- <link rel="stylesheet" href="css/reset_style.css" /> -->
 
     <!-- Stylesheet -->
-  <!--   <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
 
   </head>
   <body class="bg-secondary">
@@ -56,7 +107,22 @@
       </div>
     </nav>
     <div class="container mt-5">
-      CIAO
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5">
+        <?php foreach ($movies as $movie) { ?>
+          <div class="col">
+              <div class="card h-100 bg-dark disc-card">
+              <img src="<?= $movie->poster ?:
+                'assets/img/ciak.png' ?>" class="card-img-top" alt="<?= $movie->title ?>"
+                  onerror="this.onerror=null; this.src='assets/img/ciak.png'">
+              <div class="card-body text-center text-light">
+                  <h6 class="card-title fw-bold"><?= $movie->title ?></h6>
+                  <h6 class="card-text fw-light"><small><?= $movie->genre->name ?></small></h6>
+                  <h6 class="card-text fw-bold"><?= $movie->year ?></h6>
+              </div>
+              </div>
+          </div>
+        <?php } ?>
+      </div>
     </div>
   </body>
 </html>

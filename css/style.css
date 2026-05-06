@@ -1,0 +1,12 @@
+.disc-card {
+  max-width: 250px;
+  margin: 0 auto;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.disc-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
