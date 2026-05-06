@@ -73,6 +73,9 @@ require_once './db.php';
                   <h6 class="card-title fw-bold"><?= $movie->title ?></h6>
                   <h6 class="card-text fw-light"><small><?= $movie->getGenres() ?></small></h6>
                   <h6 class="card-text fw-bold"><?= $movie->year ?></h6>
+                  <h6 class="card-text fw-normal">
+                    <small><small><?= $movie->getStarVote() ?></small></small>
+                  </h6>
               </div>
               </div>
           </div>
