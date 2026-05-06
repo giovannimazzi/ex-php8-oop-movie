@@ -1,52 +1,7 @@
 <?php
-
-class Genre
-{
-  public $name;
-  public function __construct($_name)
-  {
-    $this->name = $_name;
-  }
-}
-
-class Movie
-{
-  public $title;
-  public $poster;
-  public $year;
-  public $genre;
-
-  public function __construct($_title, $_poster, $_year, Genre $_genre)
-  {
-    $this->title = $_title;
-    $this->poster = $_poster;
-    $this->year = $_year;
-    $this->genre = $_genre;
-  }
-
-  public function getMovieInfo()
-  {
-    return "$this->title ({$this->genre->name} - $this->year)";
-  }
-}
-
-$action = new Genre('Azione');
-$drama = new Genre('Drammatico');
-
-$movies = [
-  new Movie(
-    'Matrix',
-    'https://upload.wikimedia.org/wikipedia/en/d/db/The_Matrix.png',
-    1999,
-    $action,
-  ),
-  new Movie(
-    'Forrest Gump',
-    'https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg',
-    1994,
-    $drama,
-  ),
-];
+require_once './Models/Genre.php';
+require_once './Models/Movie.php';
+require_once './db.php';
 ?>
 
 <!doctype html>
